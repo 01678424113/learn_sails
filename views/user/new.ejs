@@ -1,0 +1,44 @@
+<form action="/user/create" method="POST" name="create-form">
+    <div class="container mt-4" style="width: 500px; margin: auto; ">
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Name</label>
+            <div class="col-10">
+                <input class="form-control" type="text" placeholder="Bắt buộc và độ dài 5-50" name="name" id="example-text-input">
+                <p class="mt-2 "> * Bắt buộc</p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Title</label>
+            <div class="col-10">
+                <input class="form-control" type="text" placeholder="Độ dài 5-50" name="title"
+                       id="example-text-input-title">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-email-input" class="col-2 col-form-label">Email</label>
+            <div class="col-10">
+                <input class="form-control" type="email" placeholder="bootstrap@example.com" name="email"
+                       id="example-email-input">
+                <p class="mt-2 "> * Bắt buộc</p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-password-input" class="col-2 col-form-label">Password</label>
+            <div class="col-10">
+                <input class="form-control" type="password" name="password" id="password">
+                <p class="mt-2 "> * Bắt buộc</p>
+            </div>
+        </div>
+        <!--  Message_name-->
+        <div class="message_name text-sm-center">
+            <% flash.get('errname').forEach(function (message) { %>
+            <div style="color: red;">
+                <%= message %>
+            </div>
+            <% }) %>
+        </div>
+        <!-- over Message_name-->
+    </div>
+    <input type="submit" value="Create" class="btn btn-success" style="margin-left: 680px;"/>
+    <input type="hidden" name="_csrf" value="<%= _csrf %>">
+</form>
